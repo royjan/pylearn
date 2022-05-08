@@ -7,9 +7,9 @@ def calculate_avg():
 
 
 if __name__ == '__main__':
-    calculator = calculate_avg()
-    next(calculator)
-    calculator.send(5)
-    next(calculator)
-    x = calculator.send(7)
-    print(x)
+    avg_calculator = calculate_avg()
+    next(avg_calculator)
+    avg_calculator.send(5)
+    next(avg_calculator)
+    result = avg_calculator.send(7)
+    print(result)

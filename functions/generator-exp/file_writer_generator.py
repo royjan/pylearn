@@ -1,12 +1,13 @@
 import tempfile
+from io import BufferedRandom
 from contextlib import contextmanager
 
 
-def read_without_generator(_file):
+def read_without_generator(_file: BufferedRandom):
     return _file.read()
 
 
-def read_with_generator(_file, chunk_size=1024):
+def read_with_generator(_file: BufferedRandom, chunk_size: int = 1024):
     while True:
         data = _file.read(chunk_size)
         if not data:
