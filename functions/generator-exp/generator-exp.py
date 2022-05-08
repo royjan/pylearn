@@ -13,3 +13,6 @@ if __name__ == '__main__':
     next(avg_calculator)
     result = avg_calculator.send(7)
     print(result)
+    next(avg_calculator)
+    result = avg_calculator.send(21)
+    print(result)  # (5+7+21)/3=11
