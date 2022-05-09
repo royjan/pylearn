@@ -4,8 +4,16 @@ from functools import singledispatch
 import numpy as np
 
 
+# def multiply_each_number_naive(array: Any, number: int | float):
+#     if type(array) is list:
+#         return [item * number for item in array]
+#     elif type(array) is np.ndarray:
+#         return array * number
+#     raise TypeError(f"unknown type: {type(array)}")
+
+
 @singledispatch
-def multiply_each_number(array: Any, _: int | float) -> None:
+def multiply_each_number(array: Any, _: int | float):
     raise TypeError(f"unknown type: {type(array)}")
 
 
@@ -20,9 +28,6 @@ def _(array: np.ndarray, number: int | float) -> np.ndarray:
 
 
 if __name__ == '__main__':
-    lst = [1, 2, 3, 4]
-    np_array = np.array(lst)
-
-    print(multiply_each_number(lst, 5))
-    print(multiply_each_number(np_array, 5))
-    print(multiply_each_number(12, 5))
+    print(multiply_each_number([8, 2, 3], 4))  # [32, 8, 12]
+    print(multiply_each_number(np.asarray([8, 2, 3]), 4))  # [32  8 12]
+    print(multiply_each_number("something", 4))  # TypeError: unknown type: <class 'str'>
