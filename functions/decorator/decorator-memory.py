@@ -1,22 +1,21 @@
 from functools import wraps
 
 
-def memoize(function):
+def memorize(function):
     cache = {}
 
-    # @wraps(function)
+    @wraps(function)
     def decorated_function(*args):
-        number = args[0]
-        if number in cache:
-            return cache[number]
-        cache[number] = function(*args)
-        print(f"{function.__name__}({number})={cache[number]}")
-        return cache[number]
+        if args in cache:
+            return cache[args]
+        cache[args] = function(*args)
+        print(f"{function.__name__}({args[0]})={cache[args]}")
+        return cache[args]
 
     return decorated_function
 
 
-@memoize
+@memorize
 def fib(n):
     if n == 0:
         return 0
