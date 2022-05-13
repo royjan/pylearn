@@ -6,7 +6,7 @@ from functools import wraps
 from time import time
 
 
-def timing(f):  # https://stackoverflow.com/questions/1622943/timeit-versus-timing-decorator
+def timing(f: callable):  # https://stackoverflow.com/questions/1622943/timeit-versus-timing-decorator
     @wraps(f)
     def wrap(*args, **kw):
         ts = time()
