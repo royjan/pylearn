@@ -22,3 +22,4 @@ def long_task():
 if __name__ == '__main__':
     long_task()
     print(long_task.__name__)
+    # timeit(long_task)()
